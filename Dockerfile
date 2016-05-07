@@ -7,7 +7,7 @@ MAINTAINER Alpha Hinex <AlphaHinex@gmail.com>
 
 # RUN apt-get -q update
 # RUN apt-get -qy install git-core redis-server
-RUN apk add --no-cache git
+RUN apk add --no-cache git python
 
 WORKDIR /home
 RUN git clone https://github.com/propersoft-cn/L.git
