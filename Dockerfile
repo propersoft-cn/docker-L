@@ -3,6 +3,7 @@ FROM mhart/alpine-node:latest
 MAINTAINER Alpha Hinex <AlphaHinex@gmail.com>
 
 RUN apk add --no-cache tzdata
+RUN ls /usr/share/zoneinfo
 RUN cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 RUN echo "Asia/Shanghai" > /etc/localtime
 RUN apk del tzdata
