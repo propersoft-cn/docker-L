@@ -12,13 +12,10 @@ RUN apk del tzdata
 
 RUN apk add --no-cache make g++ python git supervisor
 
-RUN adduser -h /hubot -D hubot
-USER hubot
-
-WORKDIR /hubot
+WORKDIR /home
 RUN git clone https://github.com/propersoft-cn/L.git
 
-WORKDIR /hubot/L
+WORKDIR /home/L
 RUN npm install
 
 # CMD bin/hubot --adapter slack
