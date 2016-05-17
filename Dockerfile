@@ -18,6 +18,5 @@ RUN git clone https://github.com/propersoft-cn/L.git
 WORKDIR /home/L
 RUN npm install
 
-# CMD bin/hubot --adapter slack
 COPY l.conf /etc/supervisor/conf.d/l.conf
-CMD tail -f /var/log/l.log
+CMD supervisord -c /etc/supervisor/conf.d/l.conf
