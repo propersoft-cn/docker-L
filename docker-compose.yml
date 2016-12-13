@@ -1,0 +1,19 @@
+brain:
+  image: redis
+  volumes:
+    - /home/ds/l-brain:/data
+  command: redis-server --appendonly yes
+bot:
+  image: propersoft/docker-l
+  volumes:
+    - /home/ds/l-bot:/var/log
+  links:
+    - brain
+  environment:
+    - REDIS_URL=redis://brain:6379/l
+    - HUBOT_SLACK_EXIT_ON_DISCONNECT=true
+    - HUBOT_SLACK_TOKEN
+    - HUBOT_MAIL_NOTIFIER_ROOMS
+    - HUBOT_MAIL_NOTIFIER_USERNAME
+    - HUBOT_MAIL_NOTIFIER_PASSWORD
+    - HUBOT_MAIL_NOTIFIER_HOST=imap.exmail.qq.com
