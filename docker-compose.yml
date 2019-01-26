@@ -1,12 +1,12 @@
 brain:
   image: redis
   volumes:
-    - /home/ds/l-brain:/data
+    - ./l-brain:/data
   command: redis-server --appendonly yes
 bot:
   image: propersoft/docker-l
   volumes:
-    - /home/ds/l-bot:/var/log
+    - ./l-bot:/var/log
   links:
     - brain
   environment:
